@@ -3,10 +3,10 @@ config.vm.box = "ubuntu/xenial64"
 config.vm.hostname = "gitlab.imhasly"
 
 
-config.ssh.private_key_path = "~/.ssh/id_rsa"
+#config.ssh.private_key_path = "~/.ssh/id_rsa"
 config.ssh.forward_agent = true
-config.ssh.username = "admin"
-config.ssh.password = "Admin012"
+#config.ssh.username = "admin"
+#config.ssh.password = "Admin012"
 
 
 
