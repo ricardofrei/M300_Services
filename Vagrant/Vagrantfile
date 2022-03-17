@@ -1,7 +1,4 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-VAGRANTFILE_API_VERSION = "2"
+VAGRANTFILE_API_VERSION = "2" #Variabel um Versionierung zu erleichtern
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/bionic64"
@@ -11,22 +8,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vbguest.auto_update = false
   end
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080
-  config.vm.network "forwarded_port", guest: 22, host: 8022
+  config.vm.network "forwarded_port", guest: 80, host: 8080 #Portforwarding
+  config.vm.network "forwarded_port", guest: 22, host: 8022 #Portforwarding
 
-  config.vm.network "private_network", ip: "192.168.56.44"
+  config.vm.network "private_network", ip: "192.168.56.44" #IP setzten, je nach Client unterschiedlich!
   config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/"]
 
   config.vm.provider "virtualbox" do |vb|
-    # Display the VirtualBox GUI when booting the machine
-    #vb.gui = true
-    vb.name = "gitlab.local"
-    # Customize the amount of memory on the VM:
-    vb.memory = "4096"
+    vb.name = "ricardo.local" #Anzeigename der Virtualbox VM
+    vb.memory = "4096" #Ram Zuweisung
   end
 
   config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update
+    sudo apt-get update 
     sudo apt-get install -y curl openssh-server ca-certificates
     debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
     debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
