@@ -1,17 +1,33 @@
-# Inhaltsverzeichnis
+# LB2 - Gitlab-Installatino automatisieren
+
+## Inhaltsverzeichnis
 
 Inhaltsverzeichnis für README.md von Ricardo Frei.
 
 - [Einleitung](#Einleitung)
-- [Service_Übersicht](#Service_Übersicht)
+- [Service](#Service)
 - [Code](#Code)
 	- [Starten](#Start)
 - [Testing](#Testing)
 - [Quellenverzeichnis](#Quellenverzeichnis)
 
 ## Einleitung
+Unser Ziel ist es, auf Basis von VirtualBox/Vagrant, einen Serverdienst zu automatisieren. 
 
-## Service_Übersicht
+Dabei waren wir in der Umsetzung frei, man konnte sich mit einem Klassenkameraden zusammenschliessen oder auf eigene Faust probieren. Ich habe mich dazu entschlossen, mit meinem Kollegen Sven Imhasly, gemeinsam zu arbeiten. Unter dem Moto, gemeinsam ist man stärker. 
+
+Den Code, welchen ich erstellt habe, ist in meinem Github sauber abgelegt und mit verschiedenen nachvollziehbaren commits versehen. 
+
+## Service
+Den Service, welchen ich automatisiere, ist `Gitlab`. Ich bin zusammen mit meinem Klassenkameraden, Sven Imhasly, darauf gekommen.
+
+Ich will, dass beim Starten mit Vagrant im Hintergrund ein Gitlab-Server installiert wird und unter [http://localhost:8080] erreichbar ist. 
+
+Dabei sollte man sich mit dem Standarduser root anmelden können. 
+
+Username | Password
+---------|-----------
+root     | 5iveL!fe --> beim Aufrufen von [http://localhost:8080] wird man aufgefordert dieses Passwort zu ändern.    
 
 ## Code
 
@@ -19,7 +35,7 @@ Inhaltsverzeichnis für README.md von Ricardo Frei.
 1. Herunterladen der Dateien und in dem Verzeichnis, welchem das `"Vagranfile"` liegt Punkt 2. ausführen.
 2. `vagrant up`
 
-## Testing
+### Testing
 > Die Installation mit `vagrant up` wurde auf meinem Gerät, einem MAC mit MacOS BigSur V.11.4 und auf dem Notebook von Herrn Imhasly, Windows 10, erfolgreich getestet. 
 
 <pre><code>
