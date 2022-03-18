@@ -6,6 +6,7 @@ Inhaltsverzeichnis für README.md von Ricardo Frei.
 
 - [Einleitung](#Einleitung)
 - [Service](#Service)
+  -[Übersicht](#Übersicht)
 - [Code](#Code)
 	- [Starten](#Start)
 - [Testing](#Testing)
@@ -21,22 +22,26 @@ Den Code, welchen ich erstellt habe, ist in meinem Github sauber abgelegt und mi
 ## Service
 Den Service, welchen ich automatisiere, ist `Gitlab`. Ich bin zusammen mit meinem Klassenkameraden, Sven Imhasly, darauf gekommen.
 
-Ich will, dass beim Starten mit Vagrant im Hintergrund ein Gitlab-Server installiert wird und unter [http://localhost:8080] erreichbar ist. 
+Ich will, dass beim Starten mit Vagrant im Hintergrund ein Gitlab-Server installiert wird und unter [http://localhost:8080](http://localhost:8080) erreichbar ist. 
 
-Dabei sollte man sich mit dem Standarduser root anmelden können. 
+Dabei kann man sich mit dem Standarduser root anmelden können. 
 
 Username | Password
 ---------|-----------
-root     | 5iveL!fe --> beim Aufrufen von [http://localhost:8080] wird man aufgefordert dieses Passwort zu ändern.    
+root     | 5iveL!fe --> beim Aufrufen von [http://localhost:8080](http://localhost:8080) wird man aufgefordert dieses Passwort zu ändern.    
 
-## Code
+### Übersicht
+![Übersicht Service](https://github.com/ricardofrei/M300_Services/blob/main/U%CC%88bersicht-Service_M300.png)
 
 ### Start
 1. Herunterladen der Dateien und in dem Verzeichnis, welchem das `"Vagranfile"` liegt Punkt 2. ausführen.
 2. `vagrant up`
+3. Auf die Website: [http://localhost:8080](http://localhost:8080) verbinden.
+4. Passwort neu setzten. (Muss 8 Zeichen lang sein!)
+5. Anmelden mit Username. `root` und zuvor gesetztem Passwort. 
+6. Feel-Free Projekte usw. zu erstellen. 
 
-### Testing
-> Die Installation mit `vagrant up` wurde auf meinem Gerät, einem MAC mit MacOS BigSur V.11.4 und auf dem Notebook von Herrn Imhasly, Windows 10, erfolgreich getestet. 
+## Code
 
 <pre><code>
 VAGRANTFILE_API_VERSION = "2"
@@ -75,5 +80,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   SHELL
 end
 </code></pre>
+
+### Testing
+> Die Installation mit `vagrant up` wurde auf meinem Gerät, einem MAC mit MacOS BigSur V.11.4 und auf dem Notebook von Herrn Imhasly, Windows 10, erfolgreich getestet. 
+
+
 
 ## Quellenverzeichnis
