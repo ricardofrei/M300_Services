@@ -6,7 +6,7 @@ Inhaltsverzeichnis für README.md von Ricardo Frei.
 
 - [Einleitung](#Einleitung)
 - [Service](#Service)
-  -[Übersicht](#Übersicht)
+  - [Übersicht](#Übersicht)
 - [Code](#Code)
 	- [Starten](#Start)
 - [Testing](#Testing)
