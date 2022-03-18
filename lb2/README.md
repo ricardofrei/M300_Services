@@ -1,4 +1,4 @@
-# LB2 - Gitlab-Installatino automatisieren
+# LB2 - Gitlab-Installation automatisieren
 
 ## Inhaltsverzeichnis
 
