@@ -1,4 +1,4 @@
-##Vorgehen zum Starten
+## Vorgehen zum Starten
 1. Herunterladen der Dateien und in dem Verzeichnis, welchem das `"Vagranfile"` liegt Punkt 2. ausführen.
 2. `vagrant up`
 
