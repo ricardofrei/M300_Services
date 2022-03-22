@@ -42,49 +42,50 @@ Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositori
 6. Feel-Free Projekte usw. zu erstellen. 
 
 ## Code
-
-<pre><code>
+```ruby
 VAGRANTFILE_API_VERSION = "2"
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| Config-Version festlegen. #Wichtig für Rückwärts Kompatibilität. auf oder abwärts
-  config.vm.box = "ubuntu/bionic64" #Angeben, welche Box verwendet wird.
-  config.vm.hostname = "ricardo.git" #In-VM, Konfigurationen.
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version festlegen. Wichtig für Rückwärts Kompatibilität.
+  config.vm.box = "ubuntu/bionic64"                         #Angeben, welche Box verwendet wird.
+  config.vm.hostname = "ricardo.git"                        #In-VM, Konfigurationen.
 
-  if Vagrant.has_plugin?("vagrant-vbguest") #VirtualBox Guest Additions deaktivieren. 
+  if Vagrant.has_plugin?("vagrant-vbguest")                 #VirtualBox Guest Additions deaktivieren.
     config.vbguest.auto_update = false
   end
 
-  config.vm.network "forwarded_port", guest: 80, host: 8080 #Portforwarding von Localhost Port 8080 auf VM Port 80
-  config.vm.network "forwarded_port", guest: 22, host: 8022 #Portforwarding von Localhost Port 8022 auf VM Port 22
+  config.vm.network "forwarded_port", guest: 80, host: 8080   #Portforwarding von Localhost Port 8080 auf VM Port 80
+  config.vm.network "forwarded_port", guest: 22, host: 8022   #Portforwarding von Localhost Port 8022 auf VM Port 22
 
-  config.vm.network "private_network", ip: "192.168.56.45" #IP-Adresse konfigurieren
-  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/"] #Das aktuelle Verzeichnis ins /vafrant auf der Linux Maschine. Mit Ausnahme von .git/ 
+  config.vm.network "private_network", ip: "192.168.56.45"  <b>#IP-Adresse konfigurieren
+  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/"]         #Das aktuelle Verzeichnis ins /vafrant auf der Linux Maschine. Mit Ausnahme von .git/
 
-  config.vm.provider "virtualbox" do |vb| #Virtualbox Specs anpassen. 
-    vb.name = "ricardo.local" #Name der VirtualBox
-    vb.memory = "4096" #RAM angeben. 
+  config.vm.provider "virtualbox" do |vb|                   #Virtualbox Specs anpassen.
+    vb.name = "ricardo.local"                               #Name der VirtualBox
+    vb.memory = "4096"                                      #RAM angeben.
     vb.cpus = "2" #Cpus festlegen
   end
+``` 
+```shell
+  config.vm.provision "shell", inline:  <<-SHELL
+    sudo apt-get update                                     #Update/neue Pakete herunterladen. Damit später mit install ausgeführt werden kann.
+    sudo apt-get install -y curl openssh-server ca-certificates       #-y für keine Userinteraktion. Openssh-Server für SSH Connection. Ca-Certificates ist ein Test, für Zertifikate für Gitlab.
 
-  config.vm.provision "shell", inline: <<-SHELL
-    sudo apt-get update #Update/neue Pakete herunterladen. Damit später mit install ausgeführt werden kann. 
-    sudo apt-get install -y curl openssh-server ca-certificates #-y für keine Userinteraktion. Openssh-Server für SSH Connection. Ca-Certificates ist ein Test, für Zertifikate für Gitlab. 
-
-    debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
+    debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"                    #Mit debconf-set-selections kann man allfällige Fragen, die im Wizard auftauchen beantworten
     debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
-    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y postfix #noninteractive: Defaultvalue für jede Frage. DEBIAN_FRONTEND Ugebungsvariabel. 
+    DEBIAN_FRONTEND=noninteractive sudo apt-get install -y postfix         #noninteractive: Defaultvalue für jede Frage. DEBIAN_FRONTEND Ugebungsvariabel.
     
-    if [ ! -e /vagrant/ubuntu-bionic-gitlab-ce_12.9.3-ce.0_amd64.deb ]; then #Wenn die Bedingung nicht erfüllt ist, das Paket von https://packages.gitlab.com herunterladen.
+    if [ ! -e /vagrant/ubuntu-bionic-gitlab-ce_12.9.3-ce.0_amd64.deb ]; then         #Wenn die Bedingung nicht erfüllt ist, das Paket von https://packages.gitlab.com herunterladen.
         wget --content-disposition -O /vagrant/ubuntu-bionic-gitlab-ce_12.9.3-ce.0_amd64.deb https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_12.9.3-ce.0_amd64.deb/download.deb #Er schreibt den Inhalt von https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_12.9.3-ce.0_amd64.deb/download.deb in die lokale Datei /vagrant/ubuntu-bionic-gitlab-ce_12.9.3-ce.0_amd64.deb.
     fi
 
-    sudo dpkg -i /vagrant/ubuntu-bionic-gitlab-ce_12.9.3-ce.0_amd64.deb #installieren des .deb Paketes. 
+    sudo dpkg -i /vagrant/ubuntu-bionic-gitlab-ce_12.9.3-ce.0_amd64.deb         #installieren des .deb Paketes.
 
-    sudo gitlab-ctl reconfigure #Veränderungen in der /etc/gitlab/gitlab.rb schreiben.
+    sudo gitlab-ctl reconfigure         #Veränderungen in der /etc/gitlab/gitlab.rb schreiben.
 
   SHELL
 end
-</code></pre>
+```
+  
 
 ### Testing
 > Die Installation mit `vagrant up` wurde auf meinem Gerät, einem MAC mit MacOS BigSur V.11.4 und auf dem Notebook von Herrn Imhasly, Windows 10, erfolgreich getestet. 
