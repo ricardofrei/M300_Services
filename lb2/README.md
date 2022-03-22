@@ -22,13 +22,13 @@ Den Code, welchen ich erstellt habe, ist in meinem Github sauber abgelegt und mi
 ## Service
 Den Service, welchen ich automatisiere, ist `Gitlab`. Ich bin zusammen mit meinem Klassenkameraden, Sven Imhasly, darauf gekommen.
 
-Ich will, dass beim Starten mit Vagrant im Hintergrund ein Gitlab-Server installiert wird und unter [http://localhost:8080](http://localhost:8080) erreichbar ist. 
-
-Dabei kann man sich mit dem Standarduser root anmelden können. 
+Ich will, dass beim Starten mit Vagrant im Hintergrund ein Gitlab-Server installiert wird und unter [http://localhost:8080](http://localhost:8080) erreichbar ist. Dabei kann man sich mit dem Standarduser root anmelden können. 
 
 Username | Password
 ---------|-----------
-root     | 5iveL!fe --> beim Aufrufen von [http://localhost:8080](http://localhost:8080) wird man aufgefordert dieses Passwort zu ändern.    
+root     | 5iveL!fe --> beim Aufrufen von [http://localhost:8080](http://localhost:8080) wird man aufgefordert dieses Passwort zu ändern.  
+
+Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositories erstellen. Man kann also nach der Installation das Gitlab sauber benutzen und damit arbeiten. 
 
 ### Übersicht
 ![Übersicht Service](https://github.com/ricardofrei/M300_Services/blob/main/U%CC%88bersicht-Service_M300.png)
@@ -46,9 +46,9 @@ root     | 5iveL!fe --> beim Aufrufen von [http://localhost:8080](http://localho
 <pre><code>
 VAGRANTFILE_API_VERSION = "2"
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/bionic64"
-  config.vm.hostname = "ricardo.git"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| <span style="color:blue">Config-Version festlegen. Wichtig für Rückwärts Kompatibilität. </span>
+  config.vm.box = "ubuntu/bionic64" <span style="color:blue">Angeben, welche Box verwendet wird.</span>
+  config.vm.hostname = "ricardo.git" <span style="color:blue">In-VM, Konfigurationen.</span>
 
   if Vagrant.has_plugin?("vagrant-vbguest")
     config.vbguest.auto_update = false
