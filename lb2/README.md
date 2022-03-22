@@ -42,8 +42,6 @@ Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositori
 6. Feel-Free Projekte usw. zu erstellen. 
 
 ## Code
-
-
 ```ruby
 VAGRANTFILE_API_VERSION = "2"
 
@@ -66,7 +64,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
     vb.memory = "4096"                                      #RAM angeben.
     vb.cpus = "2" #Cpus festlegen
   end
-  ```
+  ``` 
   ```shell
   config.vm.provision "shell", inline:  <<-SHELL
     sudo apt-get update                                     #Update/neue Pakete herunterladen. Damit später mit install ausgeführt werden kann.
@@ -87,7 +85,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
   SHELL
 end
 ```
-
+  
 
 ### Testing
 > Die Installation mit `vagrant up` wurde auf meinem Gerät, einem MAC mit MacOS BigSur V.11.4 und auf dem Notebook von Herrn Imhasly, Windows 10, erfolgreich getestet. 
