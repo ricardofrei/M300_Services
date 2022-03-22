@@ -42,12 +42,13 @@ Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositori
 6. Feel-Free Projekte usw. zu erstellen. 
 
 ## Code
+<span style="color:blue">Angeben, welche Box verwendet wird.</span>
 
 <pre><code>
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| <span style="color:blue">Config-Version festlegen. Wichtig für Rückwärts Kompatibilität. </span>
-  config.vm.box = "ubuntu/bionic64" <span style="color:blue">Angeben, welche Box verwendet wird.</span>
+  config.vm.box = "ubuntu/bionic64" 
   config.vm.hostname = "ricardo.git" <span style="color:blue">In-VM, Konfigurationen.</span>
 
   if Vagrant.has_plugin?("vagrant-vbguest")
