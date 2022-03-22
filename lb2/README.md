@@ -47,7 +47,7 @@ Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositori
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config| Config-Version festlegen. #Wichtig für Rückwärts Kompatibilität. auf oder abwärts
-  config.vm.box = "ubuntu/bionic64" #Angeben, welche Box verwendet wird.
+  config.vm.box = "ubuntu/bionic64" <span style="color:red"><b>#Angeben, welche Box verwendet wird.</b></span>
   config.vm.hostname = "ricardo.git" #In-VM, Konfigurationen.
 
   if Vagrant.has_plugin?("vagrant-vbguest") #VirtualBox Guest Additions deaktivieren. 
