@@ -64,8 +64,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
     vb.memory = "4096"                                      #RAM angeben.
     vb.cpus = "2" #Cpus festlegen
   end
-  ``` 
-  ```shell
+``` 
+```shell
   config.vm.provision "shell", inline:  <<-SHELL
     sudo apt-get update                                     #Update/neue Pakete herunterladen. Damit später mit install ausgeführt werden kann.
     sudo apt-get install -y curl openssh-server ca-certificates       #-y für keine Userinteraktion. Openssh-Server für SSH Connection. Ca-Certificates ist ein Test, für Zertifikate für Gitlab.
