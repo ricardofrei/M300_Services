@@ -9,6 +9,8 @@ Inhaltsverzeichnis für README.md von Ricardo Frei.
 - [Service](#Service)
   - [Übersicht](#Übersicht)
 - [Code](#Code)
+  - [Teil-1 - Vagrant (Ruby)](#teil-1)
+  - [Teil-2 - Linux (bash)](#teil-2)
   - [Testing](#testing)
 	  - [Starten](#Starten)
 - [Quellenverzeichnis](#Quellenverzeichnis)
@@ -39,6 +41,7 @@ Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositori
 <p align="right">(<a href="#top">Zum Start</a>)</p>
 
 ## Code
+### Teil-1
 ```ruby
 VAGRANTFILE_API_VERSION = "2"
 
@@ -62,6 +65,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
     vb.cpus = "2" #Cpus festlegen
   end
 ``` 
+### Teil-2
 ```shell
   config.vm.provision "shell", inline:  <<-SHELL
     sudo apt-get update                                     #Update/neue Pakete herunterladen. Damit später mit install ausgeführt werden kann.
