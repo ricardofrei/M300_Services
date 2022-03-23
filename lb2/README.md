@@ -66,7 +66,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
   end
 ``` 
 ### Teil-2
-```shell
+```console
   config.vm.provision "shell", inline:  <<-SHELL
     sudo apt-get update                                     #Update/neue Pakete herunterladen. Damit später mit install ausgeführt werden kann.
     sudo apt-get install -y curl openssh-server ca-certificates       #-y für keine Userinteraktion. Openssh-Server für SSH Connection. Ca-Certificates ist ein Test, für Zertifikate für Gitlab.
