@@ -1,3 +1,4 @@
+<div id="top"></div>
 # LB2 - Gitlab-Installation automatisieren
 
 ## Inhaltsverzeichnis
@@ -8,8 +9,8 @@ Inhaltsverzeichnis für README.md von Ricardo Frei.
 - [Service](#Service)
   - [Übersicht](#Übersicht)
 - [Code](#Code)
-	- [Starten](#Start)
-- [Testing](#Testing)
+  - [Testing](#testing)
+	  - [Starten](#Starten)
 - [Quellenverzeichnis](#Quellenverzeichnis)
 
 ## Einleitung
@@ -33,13 +34,9 @@ Nach der Passwortänderung kommt man ins Gitlab-GUI und kann Projekte/Repositori
 ### Übersicht
 ![Übersicht Service](https://github.com/ricardofrei/M300_Services/blob/main/U%CC%88bersicht-Service_M300.png)
 
-### Start
-1. Herunterladen der Dateien und in dem Verzeichnis, welchem das `"Vagranfile"` liegt Punkt 2. ausführen.
-2. `vagrant up`
-3. Auf die Website: [http://localhost:8080](http://localhost:8080) verbinden.
-4. Passwort neu setzten. (Muss 8 Zeichen lang sein!)
-5. Anmelden mit Username. `root` und zuvor gesetztem Passwort. 
-6. Feel-Free Projekte usw. zu erstellen. 
+
+
+<p align="right">(<a href="#top">Zum Start</a>)</p>
 
 ## Code
 ```ruby
@@ -85,11 +82,31 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
   SHELL
 end
 ```
-  
+<p align="right">(<a href="#top">Zum Start</a>)</p>
 
 ### Testing
 > Die Installation mit `vagrant up` wurde auf meinem Gerät, einem MAC mit MacOS BigSur V.11.4 und auf dem Notebook von Herrn Imhasly, Windows 10, erfolgreich getestet. 
 
+#### Starten
+
+1. Herunterladen der Dateien und in dem Verzeichnis, welchem das `"Vagranfile"` liegt und Punkt 2. ausführen.
+2. `vagrant up`
+3. Sobald die VM aufgestartet ist, respektive das CMD Fenster mit der Installation fertig ist, auf die Website: [http://localhost:8080](http://localhost:8080) verbinden.
+4. Passwort neu setzten. (Muss 8 Zeichen lang sein!)
+5. Anmelden mit Username. `root` und zuvor gesetztem Passwort. 
+6. Feel-Free Projekte usw. zu erstellen.
+
+
+<p align="right">(<a href="#top">Zum Start</a>)</p>
+
 
 
 ## Quellenverzeichnis
+
+- [Markdownsystax](https://github.com/othneildrew/Best-README-Template/blob/master/README.md) 
+- [Linux-Knowledge](https://wiki.ubuntuusers.de)
+- [Postfixinstallation](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-20-04-de)
+- [Vagrantsyntax](https://www.vagrantup.com/docs) 
+- [Installationsguide](https://github.com/grafxflow/gitlab-ce-vagrant-ubuntu-18.04) 
+
+<p align="right">(<a href="#top">Zum Start</a>)</p>
