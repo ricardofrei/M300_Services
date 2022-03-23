@@ -111,14 +111,11 @@ end
 
 <p align="right">(<a href="#top">Zum Start</a>)</p>
 ## Git-Historie
-<<<<<<< HEAD
-=======
 
   Zu Beginn des Moduls habe ich an meinem Code in einem anderen Ordner gearbeitet, als eigentlich vorgesehen war. Als ich die Anforderung gesehen habe, dass ein Ordner lb2 erstellt werden soll, habe ich das File mit dem Linux Befehl mv verschoben, anstelle von git mv. <br><br>
   Ausserdem habe ich mich im Verlauf des Moduls dazu entschieden, mit zwei branches zu arbeiten. Sprich ich code, commite und pushe alles in meinen `master` branch. Als ich sicher war, dass meine Änderungen gut sind und laufen, habe ich die Files dann mittels einem merge in meinen `main` branch gebracht. Sollte man also die einzelnen Commits genau untersuchen wollen, muss man in den `master` branch wechseln und die Commits anschauen. 
->>>>>>> 63c33c8468c8fd47e7bf12d9ade8ef095e975acd
 
-  Zu Beginn des Moduls habe ich an meinem Code in einem anderen Ordner gearbeitet, als eigentlich vorgesehen war. Als ich die Anforderung gesehen habe, dass ein Ordner lb2 erstellt werden soll, habe ich das File mit dem Linux Befehl mv verschoben, anstelle von git mv. <br><br>
+Zu Beginn des Moduls habe ich an meinem Code in einem anderen Ordner gearbeitet, als eigentlich vorgesehen war. Als ich die Anforderung gesehen habe, dass ein Ordner lb2 erstellt werden soll, habe ich das File mit dem Linux Befehl mv verschoben, anstelle von git mv. <br><br>
   Ausserdem habe ich mich im Verlauf des Moduls dazu entschieden, mit zwei branches zu arbeiten. Sprich ich code, commite und pushe alles in meinen `master` branch. Als ich sicher war, dass meine Änderungen gut sind und laufen, habe ich die Files dann mittels einem merge in meinen `main` branch gebracht. Sollte man also die einzelnen Commits genau untersuchen wollen, muss man in den `master` branch wechseln und die Commits anschauen. 
 
 <p align="right">(<a href="#top">Zum Start</a>)</p>
