@@ -1,4 +1,5 @@
 <div id="top"></div>
+
 # LB2 - Gitlab-Installation automatisieren
 
 ## Inhaltsverzeichnis
@@ -53,8 +54,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|      #Config-Version fest
   config.vm.network "forwarded_port", guest: 80, host: 8080   #Portforwarding von Localhost Port 8080 auf VM Port 80
   config.vm.network "forwarded_port", guest: 22, host: 8022   #Portforwarding von Localhost Port 8022 auf VM Port 22
 
-  config.vm.network "private_network", ip: "192.168.56.45"  <b>#IP-Adresse konfigurieren
-  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/"]         #Das aktuelle Verzeichnis ins /vafrant auf der Linux Maschine. Mit Ausnahme von .git/
+  config.vm.network "private_network", ip: "192.168.56.45"  #IP-Adresse konfigurieren
+  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/"]         #Das aktuelle Verzeichnis ins /vagrant auf der Linux Maschine. Mit Ausnahme von .git/
 
   config.vm.provider "virtualbox" do |vb|                   #Virtualbox Specs anpassen.
     vb.name = "ricardo.local"                               #Name der VirtualBox
