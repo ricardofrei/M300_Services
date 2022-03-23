@@ -114,7 +114,7 @@ end
 ## Git-Historie
 <p>
   Zu Beginn des Moduls habe ich an meinem Code in einem anderen Ordner gearbeitet, als eigentlich vorgesehen war. Als ich die Anforderung gesehen habe, dass ein Ordner lb2 erstellt werden soll, habe ich das File mit dem Linux Befehl mv verschoben, anstelle von git mv. <br><br>
-  Ausserdem habe ich mich im Verlauf des Moduls dazu entschieden, mit zwei branches zu arbeiten. Sprich ich code, commite und pushe alles in meinen `master` branch. Als ich sicher war, dass meine Änderungen gut sind und laufen, habe ich die Files dann mittels einem merge in meinen `main` branch gebracht.
+  Ausserdem habe ich mich im Verlauf des Moduls dazu entschieden, mit zwei branches zu arbeiten. Sprich ich code, commite und pushe alles in meinen `master` branch. Als ich sicher war, dass meine Änderungen gut sind und laufen, habe ich die Files dann mittels einem merge in meinen `main` branch gebracht. Sollte man also die einzelnen Commits genau untersuchen, muss man in den `master` branch wechseln und die Commits anschauen. 
 </p>
 
 <p align="right">(<a href="#top">Zum Start</a>)</p>
