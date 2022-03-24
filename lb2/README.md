@@ -1,6 +1,7 @@
 <div id="top"></div>
 
 # LB2 - Gitlab-Installation automatisieren
+Bitte nur Files im lb2/ Ordner im Branch main beachten!
 
 ## Inhaltsverzeichnis
 
