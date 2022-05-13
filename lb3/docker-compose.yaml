@@ -1,21 +1,79 @@
-version: '2.3'
+version: '3'
 
 services:
-  redis:
-    restart: always
-    image: redis:6.2.6
-    command:
-    - --loglevel warning
-    volumes:
-    - redis-data:/data:Z
+    redis:
+        restart: always
+        image: redis:6.2.6
+        command:
+        - --loglevel warning
+        volumes:
+        - redis-data:/data:Z
 
-  postgresql:
-    restart: always
-    image: sameersbn/postgresql:12-20200524
-    volumes:
-    - postgresql-data:/var/lib/postgresql:Z
-    environment:
-    - DB_USER=gitlab
-    - DB_PASS=password
-    - DB_NAME=gitlabhq_production
-    - DB_EXTENSION=pg_trgm,btree_gist
+    postgresql:
+        restart: always
+        image: sameersbn/postgresql:12-20200524
+        volumes:
+        - postgresql-data:/var/lib/postgresql:Z
+        environment:
+        - DB_USER=gitlab
+        - DB_PASS=password
+        - DB_NAME=lb3_DB
+        - DB_EXTENSION=pg_trgm,btree_gist
+
+    gitlab:
+        image: 'gitlab/gitlab-ce:latest'
+        restart: always
+        hostname: 'localhost'
+        container_name: gitlab-frei
+        ports:
+        - '80:80'
+        environment:
+        GITLAB_OMNIBUS_CONFIG: |
+            gitlab_rails['initial_root_password'] = 'adminadmin'
+
+            - DEBUG=false
+            - DB_ADAPTER=postgresql
+            - DB_HOST=postgresql
+            - DB_PORT=5432
+            - DB_USER=gitlab
+            - DB_PASS=password
+            - DB_NAME=lb3_DB
+            - REDIS_HOST=redis
+            - REDIS_PORT=6379
+            - TZ=Europe/Zuerich
+            - GITLAB_TIMEZONE=Zuerich
+            - GITLAB_HTTPS=false
+            - SSL_SELF_SIGNED=false
+            - GITLAB_HOST=localhost
+            - GITLAB_PORT=80
+            - GITLAB_SSH_PORT=8082
+    
+            - GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alphanumeric-string
+            - GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alphanumeric-string
+            - GITLAB_SECRETS_OTP_KEY_BASE=long-and-random-alphanumeric-string
+            - GITLAB_NOTIFY_ON_BROKEN_BUILDS=true
+            - GITLAB_NOTIFY_PUSHER=false
+        GITLAB_OMNIBUS_CONFIG: |
+                gitlab_rails['initial_root_password'] = 'adminadmin'
+
+        volumes:
+            - '$GITLAB_HOME/config:/etc/gitlab'
+            - '$GITLAB_HOME/logs:/var/log/gitlab'
+            - '$GITLAB_HOME/data:/var/opt/gitlab'
+
+    gitlab-runner:
+        image: gitlab/gitlab-runner:alpine
+        restart: always
+        depends_on:
+            - gitlab
+        volumes:
+            - ./config/gitlab-runner:/etc/gitlab-runner
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - gitlab
+volumes:
+    redis-data:
+    postgresql-data:
+
+networks: 
+    gitlab: 
