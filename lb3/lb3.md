@@ -34,7 +34,7 @@ Watchtower ist auf unserem Server zuständig dafür, dass regelmässig geprüft 
 Der Mail-Container erlaubt es Gitlab direkt Mails zu versenden. Er erstellt ein SMTP-Host welcher unter dem Hostname: mail erreichbar ist. 
 
 ### Übersicht
-![Übersicht Service](https://github.com/ricardofrei/M300_Services/blob/main/U%CC%88bersicht-Service_M300.png)
+![Übersicht Service](https://github.com/ricardofrei/M300_Services/blob/main/lb3/U%CC%88bersicht-Services_M300.png)
 
 <p align="right">(<a href="#top">Zum Start</a>)</p>
 
