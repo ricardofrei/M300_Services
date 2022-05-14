@@ -5,7 +5,7 @@ Bitte nur Files im lb3/ Ordner im Branch main beachten!
 
 ## Inhaltsverzeichnis
 
-Inhaltsverzeichnis für lb3.md von Ricardo Frei.
+Inhaltsverzeichnis für README.md von Ricardo Frei.
 
 - [Einleitung](#Einleitung)
 - [Service](#Service)
@@ -119,12 +119,8 @@ services:
 | Code| Beschreibung|
 | --------------| -----------------|
 | version: '3'  | Version von Docker-Compose |
-| networks:
-  frontend: | Ich definiere hier ein Netzwerk `frontend`, damit sich alles Container erreichen können. |
-| volumes:
-  vol-gitlab-config:
-  vol-gitlab-logs:
-  vol-gitlab-data: | Ich erstelle hier 3 Volumes, um sie später im Container einzubinden. In diesen Volumes könnnen beispielsweise Configs liegen. |
+| networks: | Ich definiere hier ein Netzwerk `frontend`, damit sich alles Container erreichen können. |
+| volumes: | Ich erstelle hier 3 Volumes, um sie später im Container einzubinden. In diesen Volumes könnnen beispielsweise Configs liegen. |
 | services: | Initialisierung der zu installierenden Services. |
 | image: | Angabe zum Image. Vorzugsweise von [Dockerhub](https://hub.docker.com/) |
 | restart: | Wir haben `always` gesetzt, damit es immer neustartet, sobald der Container einen exit-code hat. |
