@@ -13,6 +13,8 @@ services:
     image: v2tec/watchtower:latest
     command: --cleanup --schedule "0 0 0 * * *"
     restart: always
+    networks:
+      - frontend
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
@@ -31,19 +33,14 @@ services:
       - vol-gitlab-data:/var/opt/gitlab
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        # Add gitlab.rb configuration here, each on its own line.
-        # See: https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template
         external_url 'http://localhost'
         letsencrypt['enable'] = false
-        # Configure headers for outgoing email.
         gitlab_rails['gitlab_email_enabled'] = true
         gitlab_rails['gitlab_email_display_name'] = 'GitLab'
-        # Send outgoing email via the SMTP container:
         gitlab_rails['smtp_enable'] = true
         gitlab_rails['smtp_address'] = "mail"
         gitlab_rails['smtp_port'] = 25
         gitlab_rails['smtp_tls'] = false
-        # Limit backup lifetime to 7 days (604800 seconds):
         gitlab_rails['backup_keep_time'] = 604800
 
   mail:
