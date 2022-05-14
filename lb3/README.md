@@ -139,8 +139,8 @@ services:
 ### Starten
 1. Herunterladen der Dateien und in dem Verzeichnis, welchem das `"docker-compose.yaml"` file liegt und Punkt 2. ausführen.
 2. `docker-compose up`
-3. Sobald die Container aufgestartet sind, respektive das CMD Fenster mit der Installation fertig ist, auf die Website: [http://localhost:8080](http://localhost:8080) verbinden.
-4. Sie sollten nun auf dem Web-Interface von Gitlab sein. 
+3. Sobald die Container aufgestartet sind, respektive das CMD Fenster mit der Installation fertig ist, auf die Website: [http://localhost:8080](http://localhost:8080/root) verbinden.
+4. Sie sollten nun auf dem Web-Interface von Gitlab sein. Es sollte Aktivitäten, Projects usw. anzeigen können. 
 5. Im Hintergrund laufen nun auch Watchtower, SMTP und Gitlab-Runner.
 
 <p align="right">(<a href="#top">Zum Start</a>)</p>
