@@ -1,11 +1,11 @@
 <div id="top"></div>
 
 # LB3 - Gitlab-Installation automatisieren
-Bitte nur Files im lb2/ Ordner im Branch main beachten!
+Bitte nur Files im lb3/ Ordner im Branch main beachten!
 
 ## Inhaltsverzeichnis
 
-Inhaltsverzeichnis für README.md von Ricardo Frei.
+Inhaltsverzeichnis für lb3.md von Ricardo Frei.
 
 - [Einleitung](#Einleitung)
 - [Service](#Service)
@@ -18,10 +18,20 @@ Inhaltsverzeichnis für README.md von Ricardo Frei.
 - [Quellenverzeichnis](#Quellenverzeichnis)
 
 ## Einleitung
+Unser Ziel ist es, auf Basis von Docker-Compose, einen Serverdienst zu automatisieren. 
 
+Dabei waren wir in der Umsetzung frei, man konnte sich mit einem Klassenkameraden zusammenschliessen oder auf eigene Faust probieren. Ich habe mich dazu entschlossen, mit meinen Kollegen Sven Imhasly und Marks Zgraggen, gemeinsam zu arbeiten. Unter dem Moto, gemeinsam ist man stärker.
+
+Den Code, welchen ich erstellt habe, ist in meinem Github sauber abgelegt und mit verschiedenen nachvollziehbaren commits versehen.
 
 ## Service
+Die Services, welche ich automatisiere, sind Gitlab, Watchtower und Bytemark. Ich bin zusammen mit meinem Klassenkameraden, Sven Imhasly, darauf gekommen.
 
+Wir wollen, dass beim Starten mit vagrant up im Hintergrund ein Gitlab-Server installiert wird und unter http://localhost:8080 erreichbar ist. 
+
+Watchtower ist auf unserem Server zuständig dafür, dass regelmässig geprüft wird, dass die Images up-to-date sind. 
+
+Der Mail-Container erlaubt es Gitlab direkt Mails zu versenden. Er erstellt ein SMTP-Host welcher unter dem Hostname: mail erreichbar ist. 
 
 ### Übersicht
 ![Übersicht Service](https://github.com/ricardofrei/M300_Services/blob/main/U%CC%88bersicht-Service_M300.png)
